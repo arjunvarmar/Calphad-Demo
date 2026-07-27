@@ -6,7 +6,6 @@ The present implementation focuses on **single-phase spinodal decomposition** in
 
 An experimental **Kim–Kim–Suzuki (KKS)** implementation is also included as a foundation for future development toward multiphase and multicrystal-structure simulations.
 
-**This code is also currently being modified to show a multiphase interaction of phases with different lattice structures that can makes the secondary field in KKS significant.** 
 ---
 
 ## Features
