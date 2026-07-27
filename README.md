@@ -190,20 +190,19 @@ $$
 
 ---
 
-## Fast Relaxation of η
+## Fast Relaxation of $\eta$
 
 The phase field serves only as a bookkeeping variable.
 
 To ensure that
 
 - composition evolves slowly,
-- η relaxes rapidly,
+- $\eta$ relaxes rapidly,
 
 the Allen–Cahn mobility is chosen as
 
 $$
-L
-=
+L=
 R_{LM}M,
 $$
 
@@ -218,11 +217,10 @@ RLM >> 1
 The double-well contribution is stabilized using an eigenvalue (convexity) splitting
 
 $$
-g'(\eta)
-=
-A_0\eta
+g'(\eta)=
+A\_0\eta
 +
-(g'(\eta)-A_0\eta),
+(g'(\eta)-A\_0\eta),
 $$
 
 allowing the stiff linear part to be treated implicitly.
