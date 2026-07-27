@@ -138,25 +138,19 @@ $$
 
 where
 
-- η = 0 corresponds to one copy of the BCC phase
-- η = 1 corresponds to the second copy of the same BCC phase
+- $\eta = 0$ corresponds to one copy of the BCC phase
+- $\eta = 1$ corresponds to the second copy of the same BCC phase
 
 Although both "phases" share the identical CALPHAD description, the KKS formulation permits local partitioning through
 
 $$
-c
-=
-h(\eta)c\_B
-+
-(1-h(\eta))c\_A
+c = h(\eta)c\_B + (1-h(\eta))c\_A
 $$
 
 subject to equality of diffusion potentials
 
 $$
-\frac{\partial G}{\partial c\_A}
-=
-\frac{\partial G}{\partial c\_B}.
+\frac{\partial G}{\partial c\_A} = \frac{\partial G}{\partial c\_B}.
 $$
 
 A 2×2 Newton solver is used at every grid point to enforce these constraints.
