@@ -1,8 +1,3 @@
-# CALPHAD-Informed Cahn–Hilliard and KKS Phase-Field Models
-A demonstration of the pure Cahn-Hilliard and KKS variants of phase field models with calphad integrated chemical free energies. The text example considered is an Fe-Cr database showing spinodal decomposition.
-
-**This code is also currently being modified to show a multiphase interaction of phases with different lattice structures that can makes the secondary field in KKS significant.** 
-
 # CALPHAD-Informed Cahn–Hilliard Solver for Spinodal Decomposition
 
 A compact research implementation of a **CALPHAD-informed Cahn–Hilliard (CH) phase-field model** for simulating spinodal decomposition in binary alloys. The code evaluates thermodynamic properties directly from an open **CALPHAD Thermo-Calc Database (.tdb)** at runtime and couples them to a semi-implicit Fourier spectral solver.
@@ -11,6 +6,7 @@ The present implementation focuses on **single-phase spinodal decomposition** in
 
 An experimental **Kim–Kim–Suzuki (KKS)** implementation is also included as a foundation for future development toward multiphase and multicrystal-structure simulations.
 
+**This code is also currently being modified to show a multiphase interaction of phases with different lattice structures that can makes the secondary field in KKS significant.** 
 ---
 
 ## Features
@@ -114,11 +110,7 @@ In this mode
 through
 
 $$
-\mu
-=
-\frac{\partial G}{\partial c}
--
-\kappa_c\nabla^2c.
+\mu= \frac{\partial G}{\partial c} - \kappa\_c\nabla^2c.
 $$
 
 This is the standard approach for modeling a single-phase miscibility gap.
@@ -154,17 +146,17 @@ Although both "phases" share the identical CALPHAD description, the KKS formulat
 $$
 c
 =
-h(\eta)c_B
+h(\eta)c\_B
 +
-(1-h(\eta))c_A
+(1-h(\eta))c\_A
 $$
 
 subject to equality of diffusion potentials
 
 $$
-\frac{\partial G}{\partial c_A}
+\frac{\partial G}{\partial c\_A}
 =
-\frac{\partial G}{\partial c_B}.
+\frac{\partial G}{\partial c\_B}.
 $$
 
 A 2×2 Newton solver is used at every grid point to enforce these constraints.
@@ -177,15 +169,15 @@ $$
 F=
 \int
 \left[
-h(\eta)G(c_B)
+h(\eta)G(c\_B)
 +
-(1-h(\eta))G(c_A)
+(1-h(\eta))G(c\_A)
 +
 wg(\eta)
 +
-\frac{\kappa_c}{2}|\nabla c|^2
+\frac{\kappa\_c}{2}|\nabla c|^2
 +
-\frac{\kappa_\eta}{2}|\nabla\eta|^2
+\frac{\kappa\_\eta}{2}|\nabla\eta|^2
 \right]dV.
 $$
 
