@@ -1,9 +1,7 @@
-# Calphad-Demo
+# CALPHAD-Informed Cahn–Hilliard and KKS Phase-Field Models
 A demonstration of the pure Cahn-Hilliard and KKS variants of phase field models with calphad integrated chemical free energies. The text example considered is an Fe-Cr database showing spinodal decomposition.
 
-## This code is also currently being modified to show a multiphase interaction of phases with different lattice structures that can makes the secondary field in KKS significant. 
-
-# CALPHAD-Informed KKS Phase-Field Model for Fe–Cr Spinodal Decomposition
+**This code is also currently being modified to show a multiphase interaction of phases with different lattice structures that can makes the secondary field in KKS significant.** 
 
 # CALPHAD-Informed Cahn–Hilliard Solver for Spinodal Decomposition
 
@@ -35,9 +33,9 @@ The code models
 
 which exhibits the well-known low-temperature
 
-\[
+$$
 \alpha \rightarrow \alpha + \alpha'
-\]
+$$
 
 spinodal decomposition responsible for **475°C (885°F) embrittlement** in ferritic stainless steels and reactor pressure vessel steels.
 
@@ -72,7 +70,7 @@ containing the Fe–Cr binary assessment originally due to
 
 The BCC Gibbs energy is evaluated as
 
-\[
+$$
 G =
 x_{Fe}G_{Fe}
 +
@@ -84,7 +82,7 @@ RT
 x_{Fe}x_{Cr}L
 +
 G_{\rm magnetic}
-\]
+$$
 
 including
 
@@ -115,13 +113,13 @@ In this mode
 
 through
 
-\[
+$$
 \mu
 =
 \frac{\partial G}{\partial c}
 -
 \kappa_c\nabla^2c.
-\]
+$$
 
 This is the standard approach for modeling a single-phase miscibility gap.
 
@@ -136,15 +134,15 @@ This formulation uses two fields:
 
 - conserved composition
 
-\[
+$$
 c(\mathbf r,t)
-\]
+$$
 
 - non-conserved phase indicator
 
-\[
+$$
 \eta(\mathbf r,t)
-\]
+$$
 
 where
 
@@ -153,21 +151,21 @@ where
 
 Although both "phases" share the identical CALPHAD description, the KKS formulation permits local partitioning through
 
-\[
+$$
 c
 =
 h(\eta)c_B
 +
 (1-h(\eta))c_A
-\]
+$$
 
 subject to equality of diffusion potentials
 
-\[
+$$
 \frac{\partial G}{\partial c_A}
 =
 \frac{\partial G}{\partial c_B}.
-\]
+$$
 
 A 2×2 Newton solver is used at every grid point to enforce these constraints.
 
@@ -175,7 +173,7 @@ A 2×2 Newton solver is used at every grid point to enforce these constraints.
 
 The free-energy functional is
 
-\[
+$$
 F=
 \int
 \left[
@@ -189,21 +187,21 @@ wg(\eta)
 +
 \frac{\kappa_\eta}{2}|\nabla\eta|^2
 \right]dV.
-\]
+$$
 
 The interpolation functions are
 
-\[
+$$
 h(\eta)=
 \eta^3(6\eta^2-15\eta+10)
-\]
+$$
 
 and
 
-\[
+$$
 g(\eta)=
 \eta^2(1-\eta)^2.
-\]
+$$
 
 ---
 
@@ -218,11 +216,11 @@ To ensure that
 
 the Allen–Cahn mobility is chosen as
 
-\[
+$$
 L
 =
 R_{LM}M,
-\]
+$$
 
 where
 
@@ -234,13 +232,13 @@ RLM >> 1
 
 The double-well contribution is stabilized using an eigenvalue (convexity) splitting
 
-\[
+$$
 g'(\eta)
 =
 A_0\eta
 +
 (g'(\eta)-A_0\eta),
-\]
+$$
 
 allowing the stiff linear part to be treated implicitly.
 
