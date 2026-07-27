@@ -1,0 +1,41 @@
+$ ------------------------------------------------------------------------------
+$ fecr_bcc.tdb
+$
+$ Trimmed excerpt of the Fe-Cr binary (BCC_A2 phase only) taken from the
+$ openly available multi-component high-entropy-alloy database
+$ "mpea-02b.tdb" (B. Hallstedt, 2016-2017), distributed publicly at:
+$   https://github.com/pycalphad/binder  (multicomponent-databases/mpea-02b.tdb)
+$
+$ The Fe-Cr assessment itself is the classic CALPHAD assessment of
+$   J.-O. Andersson and B. Sundman, "Thermodynamic properties of the
+$   Cr-Fe system", CALPHAD 11 (1987) 83-92.
+$
+$ Only the lines needed to build G_m(BCC_A2, x_Cr, T) are kept:
+$ the two unary lattice-stability functions (GHSERFE, GHSERCR), the
+$ regular-solution excess parameter L(BCC_A2,CR,FE:VA;0), and the
+$ Hillert-Jarl/Inden magnetic-ordering parameters (TC, BM).
+$ ------------------------------------------------------------------------------
+$
+ FUNCTION GHSERCR   298.15  -8856.94+157.48*T-26.908*T*LN(T)
+       +0.00189435*T**2-1.47721E-06*T**3+139250*T**(-1);
+      2180.00  Y  -34869.344+344.18*T-50*T*LN(T)-2.88526E+32*T**(-9);
+      6000.00  N !
+$
+ FUNCTION GHSERFE   298.15  +1225.7+124.134*T-23.5143*T*LN(T)
+       -0.00439752*T**2-5.8927E-08*T**3+77359*T**(-1);
+      1811.00  Y  -25383.581+299.31255*T-46*T*LN(T)+2.29603E+31*T**(-9);
+      6000.00  N !
+$
+ PAR  G(BCC_A2,CR:VA),,                 +GHSERCR;,,                   N 91Din !
+ PAR  TC(BCC_A2,CR:VA),,                 -311.50;,,                   N 91Din !
+ PAR  BM(BCC_A2,CR:VA),,                   -0.008;,,                  N 91Din !
+$
+ PAR  G(BCC_A2,FE:VA),,                 +GHSERFE;,,                   N 91Din !
+ PAR  TC(BCC_A2,FE:VA),,                 1043.00;,,                   N 91Din !
+ PAR  BM(BCC_A2,FE:VA),,                    2.22;,,                   N 91Din !
+$
+ PAR  L(BCC_A2,CR,FE:VA;0),,            +20500-9.68*T;,,              N 87And1 !
+ PAR  TC(BCC_A2,CR,FE:VA;0),,           +1650;,,                      N 87And1 !
+ PAR  TC(BCC_A2,CR,FE:VA;1),,            +550;,,                      N 87And1 !
+ PAR  BM(BCC_A2,CR,FE:VA;0),,              -0.85;,,                   N 87And1 !
+$ ------------------------------------------------------------------------------
